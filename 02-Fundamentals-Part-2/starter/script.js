@@ -154,8 +154,8 @@ console.log(checkWinner(avgDolphins2, avgKoalas2));
 /* Jonas solution
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 
-const scoreDolphins = calcAverage(44, 23, 71);
-const scoreKoalas = calcAverage(65, 54, 49);
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
 
 const checkWinner = function(avgDolphins, avgKoalas) {
   if (avgDolphins >= 2 * avgKoalas) {
@@ -166,5 +166,47 @@ const checkWinner = function(avgDolphins, avgKoalas) {
     console.log('No team wins...');
   }
 }
-}
+
 */
+
+// 39 Intro to Arrays
+// bracket notation/literal notation
+const friends = ['Andy', 'Dan', 'Walker', 'Andrew', 'CJ'];
+// using the Array function (Array constructor)
+const years = new Array(1991, 1984, 2008, 2020);
+console.log(friends[0]) // => "Andy"
+console.log(years[0]) // => "1991"
+
+/*
+CODING CHALLENGE #2
+
+Steven is still building his tip calculator, using the same rules as before: Tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
+
+1. Write a function 'calcTip' that takes any bill value as an input and returns the corresponding tip, calculated based on the rules above. Use the function type you like the most. Test the function using a bill value of 100.
+2. And now let's use arrays! So create an array 'bills' containing the test data below.*
+3. Create an array 'tips' containing the tip value for each bill, calculated from the function you created before.
+4. BONUS: Create an array 'total' containing the total values, bill + tip.
+
+TEST DATA: 125, 555, and 44
+*/
+
+const bills = [125, 555, 44];
+
+const calcTip = (bills) => {
+  const total = [];
+  const tips = [];
+
+  for (let i = 0; i < bills.length; i++) {
+    if (bills[i] >= 50 || bills[i] <= 300) {
+      tips.push(bills[i] * 0.15);
+      total.push((bills[i] * 0.15) + bills[i]);
+    } else {
+      tips.push(bills[i] * 0.20);
+      total.push((bills[i] * 0.20) + bills[i])
+    }
+  }
+
+  return { total, tips };
+}
+
+console.log(calcTip(bills))
