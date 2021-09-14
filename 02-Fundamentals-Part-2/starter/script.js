@@ -114,7 +114,7 @@ points, according to the rule above.
 DATA2
 5. Ignore draws this time
 
-TEST DATA1: Dolphins score 44, 23, 17. Koalas score 65, 54, 49
+TEST DATA1: Dolphins score 44, 23, 71. Koalas score 65, 54, 49
 TEST DATA2: Dolphins score 85, 54, 41. Koalas score 23, 34, 27
 */
 
@@ -129,7 +129,7 @@ const calcAvg = (scores) => {
   const average = sum / i;
   return average;
 }
-const dolphinData1 = [44, 23, 17];
+const dolphinData1 = [44, 23, 71];
 const dolphinData2 = [85, 54, 41];
 const koalaData1 = [65, 54, 49];
 const koalaData2 = [23, 34, 27];
@@ -154,6 +154,6 @@ console.log(checkWinner(avgDolphins2, avgKoalas2))
 /* Jonas solution
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 
-
+const scoreDolphins = calcAverage(44, 23, 71);
 
 */
