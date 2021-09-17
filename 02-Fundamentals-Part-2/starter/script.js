@@ -190,26 +190,26 @@ Steven is still building his tip calculator, using the same rules as before: Tip
 TEST DATA: 125, 555, and 44
 */
 
-const bills = [125, 555, 44];
+// const bills = [125, 555, 44];
 
-const calcTip = (bills) => {
-  const total = [];
-  const tips = [];
+// const calcTip = (bills) => {
+//   const total = [];
+//   const tips = [];
 
-  for (let i = 0; i < bills.length; i++) {
-    if (bills[i] >= 50 || bills[i] <= 300) {
-      tips.push(bills[i] * 0.15);
-      total.push((bills[i] * 0.15) + bills[i]);
-    } else {
-      tips.push(bills[i] * 0.20);
-      total.push((bills[i] * 0.20) + bills[i])
-    }
-  }
+//   for (let i = 0; i < bills.length; i++) {
+//     if (bills[i] >= 50 || bills[i] <= 300) {
+//       tips.push(bills[i] * 0.15);
+//       total.push((bills[i] * 0.15) + bills[i]);
+//     } else {
+//       tips.push(bills[i] * 0.20);
+//       total.push((bills[i] * 0.20) + bills[i])
+//     }
+//   }
 
-  return { total, tips };
-}
+//   return { total, tips };
+// }
 
-console.log(calcTip(bills))
+// console.log(calcTip(bills))
 
 /* JONAS SOLUTION
 const calcTip = function(bill) {
@@ -271,3 +271,67 @@ if (mark.bmi < john.bmi) {
   console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})!`)
 
 }
+
+// 47 LOOPING ARRAYS, BREAK and CONTINUE
+
+const array = [1, 2, "Hello", true, null, false, 4, "Mario"];
+for (let i = 0; i < array.length; i++) {
+  if (typeof array[i] !== 'string') {
+    continue;
+  }
+  console.log(array[i], typeof array[i]);
+}
+
+for (let i = 0; i < array.length; i++) {
+  if (typeof array[i] !== 'number') {
+    break;
+  }
+  console.log(array[i], typeof array[i]);
+}
+
+/*
+fun example of a double for loop from the udemy vids
+I like this because you have exercises and certain reps, good way to think of
+it.
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`---- Starting exercise ${exercise}`);
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Lifting weight repetition ${rep}`)
+  }
+}
+*/
+
+/*
+Coding Challenge #4
+
+Let's improve Steven's tip calkculator!
+I already did this in challenge 2, oops
+ */
+
+const calcTip = (bill) => {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
+}
+
+const calcAverage = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  return sum / arr.length;
+}
+
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
