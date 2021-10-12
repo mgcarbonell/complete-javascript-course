@@ -165,3 +165,9 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
+
+/* Hidden Class */
+
+.hidden {
+  display: none;
+}
